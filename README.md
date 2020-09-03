@@ -40,7 +40,7 @@
 - belongs_to_active_hash :category
 - belongs_to_active_hash :postage
 - belongs_to_active_hash :shipping_origin
-- belongs_to_active_hash :post_time_id
+- belongs_to_active_hash :post_time
 
 ## purchases テーブル
 
