@@ -26,10 +26,10 @@
 | name               | string     | null: false                    |
 | content            | text       | null: false                    |
 | price              | integer    | null: false                    |
-| Performance_id     | integer    | null: false, active_hash       |
+| performance_id     | integer    | null: false, active_hash       |
 | category_id        | integer    | null: false, active_hash       |
 | postage_id         | integer    | null: false, active_hash       |
-| Shipping_origin_id | integer    | null: false, active_hash       |
+| shipping_origin_id | integer    | null: false, active_hash       |
 | post_time_id       | integer    | null: false, active_hash       |
 
 ### Association
