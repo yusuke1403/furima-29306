@@ -25,8 +25,7 @@
 | ------------------ | ---------- | ------------------------------ |
 | user_id            | references | null: false, foreign_key: true |
 | name               | string     | null: false                    |
-| image              | string     | null: false                    |
-| content            | string     | null: false                    |
+| content            | text       | null: false                    |
 | price              | integer    | null: false                    |
 | Performance_id     | integer    | null: false, active_hash       |
 | category_id        | integer    | null: false, active_hash       |
