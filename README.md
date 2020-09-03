@@ -52,7 +52,7 @@
 ### Association
 
 - belongs_to :user
-- has_one    :item
+- belongs_to :item
 - has_one    :shipping_address
 
 ## shipping_addresses テーブル
@@ -69,5 +69,5 @@
 
 ### Association
 
-- has_one  :purchase
+- belongs_to :purchase
 - belongs_to_active_hash :prefecture
