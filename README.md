@@ -75,6 +75,7 @@
 | prefectures_id   | integer    | null: false, active_hash       |
 | city             | string     | null: false                    |
 | address          | string     | null: false                    |
+| building_name    | string     |                                |
 | tel_number       | integer    | null: false                    |
 
 ### Association
