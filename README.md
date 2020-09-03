@@ -22,7 +22,7 @@
 
 | Column             | Type       | Options                        |
 | ------------------ | ---------- | ------------------------------ |
-| user_id            | references | null: false, foreign_key: true |
+| user               | references | null: false, foreign_key: true |
 | name               | string     | null: false                    |
 | content            | text       | null: false                    |
 | price              | integer    | null: false                    |
@@ -46,8 +46,8 @@
 
 | Column           | Type       | Options                        |
 | ---------------- | ---------- | ------------------------------ |
-| user_id          | references | null: false, foreign_key: true |
-| item_id          | references | null: false, foreign_key: true |
+| user             | references | null: false, foreign_key: true |
+| item             | references | null: false, foreign_key: true |
 
 ### Association
 
@@ -59,7 +59,7 @@
 
 | Column           | Type       | Options                        |
 | ---------------- | ---------- | ------------------------------ |
-| purchases_id     | references | null: false, foreign_key: true |
+| purchases        | references | null: false, foreign_key: true |
 | postal_code      | integer    | null: false                    |
 | prefecture_id    | integer    | null: false, active_hash       |
 | city             | string     | null: false                    |
