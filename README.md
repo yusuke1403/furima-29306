@@ -35,7 +35,7 @@
 ### Association
 
 - belongs_to :user
-- has_one    :purchase
+- has_many    :purchases
 - belongs_to_active_hash :performance
 - belongs_to_active_hash :category
 - belongs_to_active_hash :postage
