@@ -60,12 +60,12 @@
 | Column           | Type       | Options                        |
 | ---------------- | ---------- | ------------------------------ |
 | purchases        | references | null: false, foreign_key: true |
-| postal_code      | integer    | null: false                    |
+| postal_code      | string     | null: false                    |
 | prefecture_id    | integer    | null: false, active_hash       |
 | city             | string     | null: false                    |
 | address          | string     | null: false                    |
 | building_name    | string     |                                |
-| tel_number       | integer    | null: false                    |
+| tel_number       | string     | null: false                    |
 
 ### Association
 
