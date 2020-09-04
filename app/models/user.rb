@@ -5,7 +5,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   # パスワードは半角英数字混合であること
-  validates :password,format: { with: /\A[a-z0-9]+\z/i, message: "Include both letters and numbers"}
+  validates :password,format: { with: /\A(?=.*?[a-z])(?=.*?[\d])[a-z\d]+\z/i, message: "Include both letters and numbers"}
   with_options presence: true do
     validates :nickname, :birthday
       # ユーザー本名は全角（漢字・ひらがな・カタカナ）で入力
