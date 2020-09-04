@@ -6,8 +6,6 @@ class User < ApplicationRecord
 
   # パスワードは半角英数字混合であること
   validates :password,format: { with: /\A[a-z0-9]+\z/i, message: "Include both letters and numbers"}
-  # メールアドレスが一意性であること
-  validates :email, uniqueness: { case_sensitive: false , message: "Already in use."}
   with_options presence: true do
     validates :nickname, :birthday
       # ユーザー本名は全角（漢字・ひらがな・カタカナ）で入力
