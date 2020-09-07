@@ -8,5 +8,7 @@ class Item < ApplicationRecord
   belongs_to_active_hash :shipping_origin
   belongs_to_active_hash :post_time
 
-  validates :
+  validates :name, :image, :content, :category, :performance, :postage, :shipping_origin, :post_time, :price, presence: {message: "can't be blank"}
+  validates :category_id, :performance_id, :postage_id, :shipping_origin_id, :post_time_id, numericality: { other_than: 1 ,message: "Select"}
+  validates :price, format: {with: /\A[0-9]+\z/, message: "Half-width number"}, inclusion: { in: 300..9999999, message: 'Out of setting range'}
 end
