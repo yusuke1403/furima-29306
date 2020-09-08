@@ -36,35 +36,35 @@ RSpec.describe Item, type: :model do
     it 'カテゴリが何も選択されていなければ出品できないこと' do
       @item.category_id = 1
       @item.valid?
-      expect(@item.errors.full_messages).to include("Category Select")
+      expect(@item.errors.full_messages).to include('Category Select')
     end
 
     # performance_idのテストコード
     it '商品の状態が何も選択されていなければ出品できないこと' do
       @item.performance_id = 1
       @item.valid?
-      expect(@item.errors.full_messages).to include("Performance Select")
+      expect(@item.errors.full_messages).to include('Performance Select')
     end
 
     # postage_idのテストコード
     it '配送料の負担が何も選択されていなければ出品できないこと' do
       @item.postage_id = 1
       @item.valid?
-      expect(@item.errors.full_messages).to include("Postage Select")
+      expect(@item.errors.full_messages).to include('Postage Select')
     end
 
     # shipping_origin_idのテストコード
     it '発送元の地域が何も選択されていなければ出品できないこと' do
       @item.shipping_origin_id = 1
       @item.valid?
-      expect(@item.errors.full_messages).to include("Shipping origin Select")
+      expect(@item.errors.full_messages).to include('Shipping origin Select')
     end
 
     # post_time_idのテストコード
     it '発送までの日数が何も選択されていなければ出品できないこと' do
       @item.post_time_id = 1
       @item.valid?
-      expect(@item.errors.full_messages).to include("Post time Select")
+      expect(@item.errors.full_messages).to include('Post time Select')
     end
 
     # priceのテストコード
@@ -77,19 +77,19 @@ RSpec.describe Item, type: :model do
     it '販売価格の範囲が、¥299以下では出品できないこと' do
       @item.price = 299
       @item.valid?
-      expect(@item.errors.full_messages).to include("Price Out of setting range")
+      expect(@item.errors.full_messages).to include('Price Out of setting range')
     end
 
     it '販売価格の範囲が、¥10000000以上では出品できないこと' do
-      @item.price = 10000000
+      @item.price = 10_000_000
       @item.valid?
-      expect(@item.errors.full_messages).to include("Price Out of setting range")
+      expect(@item.errors.full_messages).to include('Price Out of setting range')
     end
 
     it '販売価格が全角数字では出品できないこと' do
       @item.price = '３５０'
       @item.valid?
-      expect(@item.errors.full_messages).to include("Price Half-width number")
+      expect(@item.errors.full_messages).to include('Price Half-width number')
     end
   end
 end
