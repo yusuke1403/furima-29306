@@ -18,6 +18,14 @@ class ItemsController < ApplicationController
     end
   end
 
+  def edit
+    @items = Item.find(params[:id])
+  end
+
+  def update
+    @items = Item.update(params[:id])
+  end
+
   def show
     @item = Item.find(params[:id])
   end
