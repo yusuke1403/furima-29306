@@ -1,6 +1,6 @@
 class ItemsController < ApplicationController
   before_action :move_to_sign_up, except: [:index, :show]
-  before_action :item_find, only: [:edit, :update]
+  before_action :item_find, only: [:edit, :update, :show]
   def index
     @items = Item.all.order('created_at DESC')
   end
@@ -30,7 +30,6 @@ class ItemsController < ApplicationController
   end
 
   def show
-    @item = Item.find(params[:id])
   end
 
   private
