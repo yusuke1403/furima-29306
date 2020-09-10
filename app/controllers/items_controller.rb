@@ -1,6 +1,6 @@
 class ItemsController < ApplicationController
   before_action :move_to_sign_up, except: [:index, :show]
-  before_action :item_find, only: [:edit, :update, :show]
+  before_action :item_find, only: [:edit, :update, :show, :destroy]
   def index
     @items = Item.all.order('created_at DESC')
   end
@@ -30,6 +30,11 @@ class ItemsController < ApplicationController
   end
 
   def show
+  end
+
+  def destroy
+    @item.destroy
+    redirect_to root_path
   end
 
   private
