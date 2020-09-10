@@ -1,27 +1,27 @@
 <div class='list'>
-  <%= link_to "#" do %>
-  <div class='item-img-content'>
-    <%= image_tag items.image, class: "item-img" if items.image.attached? %>
+  <%= link_to item_path(items.id), method: :get do %>
+    <div class='item-img-content'>
+      <%= image_tag items.image, class: "item-img" if items.image.attached? %>
 
-    <%# 商品に対してpurchasesがある場合は、sold outを表示 %>
-    <% if items.purchase.present? %>
-      <div class='sold-out'>
-        <span>Sold Out!!</span>
-      </div>
-    <% end %>
+      <%# 商品に対してpurchasesがある場合は、sold outを表示 %>
+      <% if items.purchase.present? %>
+        <div class='sold-out'>
+          <span>Sold Out!!</span>
+        </div>
+      <% end %>
 
-  </div>
-  <div class='item-info'>
-    <h3 class='item-name'>
-      <%= items.name %>
-    </h3>
-    <div class='item-price'>
-      <span><%= items.price %>円<br>(税込み)</span>
-      <div class='star-btn'>
-        <%= image_tag "star.png", class:"star-icon" %>
-        <span class='star-count'>0</span>
+    </div>
+    <div class='item-info'>
+      <h3 class='item-name'>
+        <%= items.name %>
+      </h3>
+      <div class='item-price'>
+        <span><%= items.price %>円<br>(税込み)</span>
+        <div class='star-btn'>
+          <%= image_tag "star.png", class:"star-icon" %>
+          <span class='star-count'>0</span>
+        </div>
       </div>
     </div>
-  </div>
   <% end %>
 </div>
