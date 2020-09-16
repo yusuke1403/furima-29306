@@ -11,7 +11,7 @@ class PurchasesController < ApplicationController
     if @purchase.valid?
       pay_item
       @purchase.save
-      return redirect_to root_path
+      redirect_to root_path
     else
       render 'index'
     end
@@ -27,7 +27,7 @@ class PurchasesController < ApplicationController
     @item = Item.find(params[:item_id])
     redirect_to new_user_session_path unless user_signed_in?
     redirect_to root_path if current_user.id == @item.user.id
-    redirect_to root_path if @item.purchase != nil
+    redirect_to root_path unless @item.purchase.nil?
   end
 
   def purchase_params
@@ -35,11 +35,11 @@ class PurchasesController < ApplicationController
   end
 
   def pay_item
-    Payjp.api_key = ENV["PAYJP_SECRET_KEY"]
+    Payjp.api_key = ENV['PAYJP_SECRET_KEY']
     Payjp::Charge.create(
       amount: @item.price,
       card: purchase_params[:token],
-      currency:'jpy'
+      currency: 'jpy'
     )
   end
 end
