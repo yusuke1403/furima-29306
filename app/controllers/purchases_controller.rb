@@ -1,6 +1,6 @@
 class PurchasesController < ApplicationController
-  before_action :move_to_sign_up
   before_action :set_item
+  before_action :move_page
 
   def index
     @purchase = ShippingAddressPurchase.new
@@ -23,8 +23,11 @@ class PurchasesController < ApplicationController
     @item = Item.find(params[:item_id])
   end
 
-  def move_to_sign_up
+  def move_page
+    @item = Item.find(params[:item_id])
     redirect_to new_user_session_path unless user_signed_in?
+    redirect_to root_path if current_user.id == @item.user.id
+    redirect_to root_path if @item.purchase != nil
   end
 
   def purchase_params
