@@ -25,9 +25,12 @@ class PurchasesController < ApplicationController
 
   def move_page
     @item = Item.find(params[:item_id])
-    redirect_to new_user_session_path unless user_signed_in?
-    redirect_to root_path if current_user.id == @item.user.id
-    redirect_to root_path unless @item.purchase.nil?
+    unless user_signed_in?
+      redirect_to new_user_session_path
+    else
+      redirect_to root_path if (current_user.id == @item.user.id) || (@item.purchase != nil)
+      # redirect_to root_path unless @item.purchase.nil?
+    end
   end
 
   def purchase_params
