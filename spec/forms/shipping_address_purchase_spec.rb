@@ -68,5 +68,11 @@ RSpec.describe ShippingAddressPurchase, type: :model do
       @shipping_address_purchase.valid?
       expect(@shipping_address_purchase.errors.full_messages).to include('Tel number Half-width number')
     end
+
+    it '電話番号が12桁以上あると購入できないこと' do
+      @shipping_address_purchase.tel_number = '090111122223'
+      @shipping_address_purchase.valid?
+      expect(@shipping_address_purchase.errors.full_messages).to include('Tel number Is 11 characters or less')
+    end
   end
 end
