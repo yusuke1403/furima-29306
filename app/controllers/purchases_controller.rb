@@ -29,7 +29,6 @@ class PurchasesController < ApplicationController
       redirect_to new_user_session_path
     else
       redirect_to root_path if (current_user.id == @item.user.id) || (@item.purchase != nil)
-      # redirect_to root_path unless @item.purchase.nil?
     end
   end
 
